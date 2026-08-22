@@ -1,39 +1,19 @@
-def delete_student(student_list):
-    print("\n--- Delete Student ---")
-
-    if not student_list:
-        print("The student list is currently empty.")
-        return student_list
-
-    print("1. Delete by Student ID")
-    print("2. Delete by Name")
-    choice = input("Choose an option (1 or 2): ").strip()
-
-    if choice == "1":
-        search_id = input("Enter Student ID to delete: ").strip()
-        student_to_remove = None
-
-        for student in student_list:
-            if student["id"] == search_id:
-                student_to_remove = student
-                break
-
-        if student_to_remove:
-            student_list.remove(student_to_remove)
-            print(f"Success: Student with ID {search_id} has been deleted.")
-        else:
-            print(f"Error: No student found with ID {search_id}.")
-
-    elif choice == "2":
-        search_name = input("Enter Student Name to delete: ").strip().lower()
-        matches = [s for s in student_list if s["name"].lower() == search_name]
-
-        if not matches:
-            print(f"Error: No student found with the name '{search_name}'.")
-        elif len(matches) == 1:
-            student_list.remove(matches[0])
-            print(f"Success: Student '{matches[0]['name']}' has been deleted.")
-        else:
+def delete_student():
+    if not students: return print("The student list is empty.")
+    
+    mode = "Student Number" if input("1. By ID\n2. By Name\nOption: ") == "1" else "Name"
+    val = input(f"Enter {mode}: ").strip().lower()
+    matches = [s for s in students if str(s[mode]).lower() == val]
+    
+    if not matches: return print("No matching student found.")
+    
+    to_remove = matches[0] if len(matches) == 1 else next((s for s in matches if str(s["Student Number"]).lower() == input("Multiple found. Enter exact ID: ").strip().lower()), None)
+    
+    if to_remove:
+        students.remove(to_remove)
+        print("Student deleted successfully!")
+    else:
+        print("Invalid selection. Cancelled.")
             print(f"\nMultiple students found matching '{search_name}':")
             for student in matches:
                 print(f"- ID: {student['id']} | Name: {student['name']}")
