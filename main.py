@@ -1,4 +1,4 @@
-from add-features import add_student
+from add-features import add_students
 from delete-features import delete_student
 from edit import edit_student
 from search import search_student
