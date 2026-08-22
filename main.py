@@ -4,7 +4,7 @@ from edit import edit_student
 from search import search_student
 
 
-def display_students(student_list):
+def display_students(students):
     print("\n" + "=" * 50)
     print("                 STUDENT LIST")
     print("=" * 50)
