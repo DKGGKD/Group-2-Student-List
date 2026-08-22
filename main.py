@@ -9,20 +9,18 @@ def display_students(students):
     print("                 STUDENT LIST")
     print("=" * 50)
 
-    if not student_list:
+    if not students:
         print("The student list is currently empty.")
         print("=" * 50)
         return
 
-    for index, student in enumerate(student_list, start=1):
+    for index, student in enumerate(students, start=1):
         print(f"{index}. Name          : {student['Name']}")
         print(f"   Student Number : {student['Student Number']}")
         print("-" * 50)
 
 
 def main():
-    student_list = []
-
     while True:
         print("\n" + "=" * 50)
         print("              STUDENT LIST SYSTEM")
