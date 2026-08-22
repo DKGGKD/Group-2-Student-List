@@ -40,7 +40,7 @@ def main():
         choice = input("Enter your choice: ").strip()
 
         if choice == "1":
-            add_students(student_list)
+            add_students()
 
         elif choice == "2":
             delete_student(student_list)
