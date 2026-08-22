@@ -1,4 +1,4 @@
-from add_features import add_students
+from add_features import add_students, students
 from delete_features import delete_student
 from edit import edit_student
 from search import search_student
@@ -43,16 +43,16 @@ def main():
             add_students()
 
         elif choice == "2":
-            delete_student(student_list)
+            delete_student(students)
 
         elif choice == "3":
-            edit_student(student_list)
+            edit_student(students)
 
         elif choice == "4":
-            search_student(student_list)
+            search_student(students)
 
         elif choice == "5":
-            display_students(student_list)
+            display_students(students)
 
         elif choice == "6":
             print("\nThank you for using the Student List System!")
